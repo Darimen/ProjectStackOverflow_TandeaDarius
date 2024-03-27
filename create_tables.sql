@@ -15,11 +15,12 @@ CREATE TABLE "user" (
     email VARCHAR NOT NULL,
     phone_nr VARCHAR,
     phone_pf VARCHAR,
-    surname VARCHAR,
+    firstname VARCHAR,
     lastname VARCHAR,
     is_mod BOOLEAN DEFAULT FALSE NOT NULL,
     created_at TIMESTAMP NOT NULL,
-    last_update TIMESTAMP NOT NULL
+    last_update TIMESTAMP NOT NULL,
+    reason VARCHAR
 );
 
 CREATE TABLE questions (
@@ -53,6 +54,7 @@ CREATE TABLE tags (
 );
 
 CREATE TABLE questions_to_tags (
+    qtt_id BIGINT PRIMARY KEY,
     q_id BIGINT NOT NULL,
     tag_id BIGINT NOT NULL,
     FOREIGN KEY (q_id) REFERENCES questions (q_id),
@@ -69,10 +71,6 @@ CREATE TABLE votes (
     FOREIGN KEY (q_id) REFERENCES questions (q_id),
     FOREIGN KEY (a_id) REFERENCES answer (a_id)
 );
-
-
-
-
 
 
 
@@ -107,9 +105,9 @@ Insert Into tags (tag_id, name)
 Insert Into tags (tag_id, name)
     Values (2, 'tag2');
 
-INSERT INTO questions_to_tags(q_id, tag_id)
-    VALUES (1, 1);
-INSERT INTO questions_to_tags(q_id, tag_id)
-    VALUES (2, 1);
-INSERT INTO questions_to_tags(q_id, tag_id)
-    VALUES (2, 2);
+INSERT INTO questions_to_tags(qtt_id,q_id, tag_id)
+    VALUES (1, 1, 1);
+INSERT INTO questions_to_tags(qtt_id,q_id, tag_id)
+    VALUES (2, 2, 1);
+INSERT INTO questions_to_tags(qtt_id,q_id, tag_id)
+    VALUES (3, 2, 2);
