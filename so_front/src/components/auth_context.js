@@ -10,6 +10,9 @@ export function AuthProvider({ children }) {
 
   const [user, setUser] = useState(null);
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
   const login = async (email, password, username) => {
     await fetch("http://localhost:8080/user/login", {
       method: 'POST',
@@ -20,7 +23,7 @@ export function AuthProvider({ children }) {
     })
       .then(response => response.json())
       .then(data => {
-        if(data.user){
+        if(data){
         console.log(data);
         setUser(data);
         localStorage.setItem('user', JSON.stringify(data));  
@@ -31,7 +34,7 @@ export function AuthProvider({ children }) {
 
 
   const signup = (email, password, username, first_name, last_name, phone, country) => {
-    fetch("http://localhost:8080/user/signup/", {
+    fetch("http://localhost:8080/user/signup", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,10 +69,13 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     console.log(user);
+    if (user){
+      setIsAuthenticated(true);
+    }
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, signup }}>
+    <AuthContext.Provider value={{ user, login, logout, signup, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

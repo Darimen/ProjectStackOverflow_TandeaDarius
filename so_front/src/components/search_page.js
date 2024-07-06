@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import QuestionManager from "./question_manager";
+import QuestionManager from "./home/quest/question_manager";
 
 const SearchPage = () => {
-    const [searchResult, setSearchResult] = useState(null);
+    const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
         const result = localStorage.getItem("search_result");

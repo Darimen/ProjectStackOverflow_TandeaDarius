@@ -1,0 +1,52 @@
+.sign_comp{
+    display: flex;
+    margin-left: 20%;
+    margin-right: 20%;
+    flex-direction: column;
+
+    .selection_menu{
+        flex-direction: row;
+
+        button{
+            background-color: aqua; 
+        }
+
+        button:hover{
+            background-color: azure;
+        }
+    }
+
+    .credentials_area{
+        display: flex;
+        border-radius: 10%;
+        border-width: 10px;
+
+        border-color: black;
+        background-color: antiquewhite;
+        .signup{
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items:normal;
+                flex-wrap: wrap;
+                .form-group{
+                    margin-top: 3px;
+                }
+            }
+        }
+
+        .login{
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items:normal;
+                flex-wrap: wrap;
+                .form-group{
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+}
+
+

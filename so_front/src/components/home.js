@@ -1,6 +1,6 @@
 import React from "react";
-import Questions from "./questions";
-import SignComp from "./sign_comp";
+import Questions from "./home/quest/questions";
+import SignComp from "./home/sign/sign_comp";
 
 const Home = () => {
 

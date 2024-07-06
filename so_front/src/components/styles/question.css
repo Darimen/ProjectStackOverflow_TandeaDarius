@@ -1,0 +1,15 @@
+.question{
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3px;
+    border-color: black;
+    width: 80%;
+    height: fit-content;
+    max-height: 20%;
+}
+
+.questions{
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+}
