@@ -11,6 +11,7 @@ import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.util.Date;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/answer")
 public class AnswerController {
@@ -18,7 +19,7 @@ public class AnswerController {
     @Autowired
     AnswerService answerService;
 
-    @PostMapping("/add/")
+    @PostMapping("/add")
     public Answer addAnswer(@RequestBody AnswerDTO answerDTO) {
 
         Answer answer;

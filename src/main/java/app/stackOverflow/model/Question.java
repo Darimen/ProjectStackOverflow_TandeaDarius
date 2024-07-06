@@ -43,6 +43,9 @@ public class Question {
     @Column(name = "q_id")
     private BigInteger qId;
 
+    @Column(name = "author_name")
+    private String authorName;
+
     @Column(name = "author_id")
     private BigInteger authorId;
 

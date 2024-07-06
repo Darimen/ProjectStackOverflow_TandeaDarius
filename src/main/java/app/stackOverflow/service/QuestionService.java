@@ -170,5 +170,24 @@ public class QuestionService {
     }
 
 
+    public Iterable<Question> getQuestionByTags(String tagString) {
+        String[] tags = tagString.split(",");
+        ArrayList<Question> questions = new ArrayList<>();
+        for(String i : tags){
+            questions.addAll((ArrayList<Question>) getQuestionsByTagName(i));
+        }
+        return questions;
+    }
 
+    public Iterable<Question> getQuestionByUser(String username) {
+        User user = userRepo.findByUsername(username);
+        if(user == null) {
+            throw new RuntimeException("User does not exist");
+        }
+        return questionRepo.findByAuthorId(user.getUId());
+    }
+
+    public Iterable<Question> getQuestionByText(String text) {
+        return questionRepo.findByTextContaining(text);
+    }
 }
